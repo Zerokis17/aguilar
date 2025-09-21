@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to bottom, #fff9c4, #ffe082);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  text-align: center;
+  animation: fadeIn 2s ease-in;
+}
+
+.title {
+  font-size: 2rem;
+  color: #f57f17;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+.garden {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.flower {
+  position: relative;
+  width: 60px;
+  height: 150px;
+  animation: sway 3s ease-in-out infinite;
+}
+
+.flower::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 8px;
+  height: 100px;
+  background-color: #388e3c;
+  border-radius: 4px;
+  transform: translateX(-50%);
+}
+
+.flower::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #ffeb3b, #fbc02d);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: -25px 0px 0px 0px #fdd835, 25px 0px 0px 0px #fdd835,
+    0px -25px 0px 0px #fdd835, 0px 25px 0px 0px #fdd835,
+    15px 15px 0px 0px #fbc02d, -15px -15px 0px 0px #fbc02d;
+}
+
+.message {
+  font-size: 1.5rem;
+  color: #e65100;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 2s ease-out forwards;
+  animation-delay: 1.5s;
+}
+
+.flower {
+  position: relative;
+  width: 60px;
+  height: 150px;
+  transform: scale(0);
+  animation: sway 3s ease-in-out infinite;
+  transform-origin: bottom center;
+  transition: transform 0.6s ease-out;
+}
+
+.flower {
+  transform: scale(0); /* se sobreescribe en JS */
+  transform-origin: bottom center;
+}
+
+.message {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+
+#play-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #fdd835;
+  color: #5d4037;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#play-btn:hover {
+  transform: scale(1.1);
+  background-color: #ffeb3b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
